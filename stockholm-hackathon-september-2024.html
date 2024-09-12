@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XRHack Leaderboard</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #ffffff;
+        }
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .header img {
+            height: 50px;
+        }
+        .header nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .header nav a:hover {
+            color: #00e676;
+        }
+        .leaderboard-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .leaderboard-container h1, .leaderboard-container h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .leaderboard-container h2 {
+            color: #FFD700; /* Change the color to yellow */
+        }
+        .compare-input {
+            margin: 20px 0;
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+        .compare-input input {
+            padding: 10px;
+            border: none;
+            border-radius: 30px;
+            outline: none;
+            margin-right: 10px;
+            width: 250px;
+            transition: box-shadow 0.3s ease;
+        }
+        .compare-input input:focus {
+            box-shadow: 0px 0px 10px #00e676;
+        }
+        .compare-input button {
+            padding: 10px 20px;
+            background-color: #00e676;
+            color: #0f2027;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .compare-input button:hover {
+            background-color: #00c853;
+        }
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .leaderboard-table th, .leaderboard-table td {
+            padding: 15px;
+            text-align: center;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .leaderboard-table th {
+            background-color: rgba(0, 230, 118, 0.2);
+            font-size: 16px;
+        }
+        .leaderboard-table tr:last-child td {
+            border-bottom: none;
+        }
+        .leaderboard-table td img {
+            width: 25px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px rgba(0, 230, 118, 0.6);
+        }
+
+        /* Responsive Design */
+        @media(max-width: 1024px) {
+            .compare-input input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .compare-input {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .header nav a {
+                font-size: 14px;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .leaderboard-container h1, .leaderboard-container h2 {
+                font-size: 28px;
+            }
+            .leaderboard-table th, .leaderboard-table td {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        @media(max-width: 576px) {
+            .leaderboard-container h1, .leaderboard-container h2 {
+                font-size: 24px;
+            }
+            .leaderboard-table th, .leaderboard-table td {
+                padding: 8px;
+                font-size: 12px;
+            }
+            .leaderboard-table td img {
+                width: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://www.xrhack.com/">
+            <img src="https://i.postimg.cc/L5NbPFfM/hq720-removebg-preview-1.png" alt="XRHack Logo">
+        </a>
+        <nav>
+            <a href="https://www.hackerrank.com/dashboard">Prepare</a>
+            <a href="https://www.hackerrank.com/contests">Compete</a>
+            <a href="https://www.hackerrank.com/apply">Apply</a>
+        </nav>
+    </div>
+    <div class="leaderboard-container">
+        <h2>Stockholm Hackathon September 2024</h2>
+        <h1>Leaderboard</h1>
+        <div class="compare-input">
+            <input type="text" placeholder="Type username to compare">
+            <button>Compare</button>
+        </div>
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>User</th>
+                    <th>Score</th>
+                    <th>Time</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>lingxiajang</td>
+                    <td>50.00</td>
+                    <td>4:02:04</td>
+                    <td><img src="https://media.istockphoto.com/id/183406281/photo/chinese-flag.jpg?s=612x612&w=0&k=20&c=XGtLAo211qWwhBZO9mmQKb56p0Z-LX4GETAUAJDNbe0=" alt="China Flag"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>KennethGomes11</td>
+                    <td>48.50</td>
+                    <td>3:12:45</td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India Flag"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>codycolesimons</td>
+                    <td>45.00</td>
+                    <td>2:55:10</td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" alt="USA Flag"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>TechGuru</td>
+                    <td>42.75</td>
+                    <td>3:08:32</td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" alt="USA Flag"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>CodeMaster6</td>
+                    <td>40.50</td>
+                    <td>3:22:14</td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png" alt="Japan Flag"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>mearhead</td>
+                    <td>39.00</td>
+                    <td>3:30:47</td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2560px-Flag_of_Sweden.svg.png" alt="Sweden Flag"></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>byte_36x_</td>
+                    <td>38.25</td>
+                    <td>3:48:20</td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png" alt="Japan Flag"></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>endoscopic</td>
+                    <td>37.00</td>
+                    <td>4:00:12</td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png" alt="Japan Flag"></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>hellow0rld</td>
+                    <td>36.50</td>
+                    <td>4:10:45</td>
+                    <td><img src="https://cdn.britannica.com/97/897-050-0BFECDA5/Flag-Germany.jpg" alt="Germany Flag"></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>CodeWarrior</td>
+                    <td>35.00</td>
+                    <td>4:25:38</td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png" alt="Japan Flag"></td>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
