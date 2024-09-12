@@ -12,6 +12,7 @@
             background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             color: #ffffff;
         }
+
         .header {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -21,130 +22,140 @@
             align-items: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
+
         .header img {
             height: 50px;
         }
+
+        /* Regular navigation links */
+        .header nav {
+            display: flex;
+            gap: 15px;
+        }
+
         .header nav a {
             color: #ffffff;
-            margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
+
         .header nav a:hover {
             color: #00e676;
         }
-        .leaderboard-container {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 20px auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
-        }
-        .leaderboard-container h1, .leaderboard-container h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .leaderboard-container h2 {
-            color: #FFD700; /* Change the color to yellow */
-        }
-        .compare-input {
-            margin: 20px 0;
-            display: flex;
-            justify-content: flex-end;
-            flex-wrap: wrap;
-        }
-        .compare-input input {
-            padding: 10px;
-            border: none;
-            border-radius: 30px;
-            outline: none;
-            margin-right: 10px;
-            width: 250px;
-            transition: box-shadow 0.3s ease;
-        }
-        .compare-input input:focus {
-            box-shadow: 0px 0px 10px #00e676;
-        }
-        .compare-input button {
-            padding: 10px 20px;
-            background-color: #00e676;
-            color: #0f2027;
-            border: none;
-            border-radius: 30px;
+
+        /* Hamburger Menu - Hidden by default */
+        .hamburger {
+            display: none;
+            flex-direction: column;
             cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        .compare-input button:hover {
-            background-color: #00c853;
-        }
-        .leaderboard-table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .leaderboard-table th, .leaderboard-table td {
-            padding: 15px;
-            text-align: center;
-            color: #ffffff;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .leaderboard-table th {
-            background-color: rgba(0, 230, 118, 0.2);
-            font-size: 16px;
-        }
-        .leaderboard-table tr:last-child td {
-            border-bottom: none;
-        }
-        .leaderboard-table td img {
-            width: 25px;
-            border-radius: 50%;
-            box-shadow: 0px 0px 10px rgba(0, 230, 118, 0.6);
         }
 
-        /* Responsive Design */
-        @media(max-width: 1024px) {
+        .hamburger span {
+            background: #fff;
+            margin: 4px 0;
+            width: 25px;
+            height: 3px;
+            transition: 0.4s;
+        }
+
+        /* Mobile navigation - hidden by default */
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.9);
+            top: 60px;
+            right: 0;
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+            z-index: 1;
+        }
+
+        .mobile-nav a {
+            color: #ffffff;
+            margin: 10px 0;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Show hamburger and hide the regular nav on small screens */
+        @media(max-width: 768px) {
+            .header nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .compare-input {
+                flex-direction: column;
+            }
+
             .compare-input input {
                 width: 100%;
                 margin-bottom: 10px;
             }
-            .compare-input {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .header nav a {
-                font-size: 14px;
-            }
         }
 
-        @media(max-width: 768px) {
+        /* Fix the button overflow for mobile screens */
+        @media(max-width: 576px) {
             .leaderboard-container h1, .leaderboard-container h2 {
-                font-size: 28px;
+                font-size: 24px;
             }
+
+            .compare-input input, .compare-input button {
+                padding: 10px;
+            }
+
             .leaderboard-table th, .leaderboard-table td {
                 padding: 10px;
                 font-size: 14px;
             }
         }
 
-        @media(max-width: 576px) {
+        /* Smaller screens */
+        @media(max-width: 400px) {
+            .compare-input input {
+                width: 100%;
+            }
+
             .leaderboard-container h1, .leaderboard-container h2 {
-                font-size: 24px;
+                font-size: 16px;
             }
+
             .leaderboard-table th, .leaderboard-table td {
-                padding: 8px;
-                font-size: 12px;
+                padding: 6px;
             }
-            .leaderboard-table td img {
-                width: 20px;
-            }
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 40px;
+        }
+
+        .footer-content p {
+            color: #ffffff;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .footer-content .social-media a {
+            color: #00e676;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-content .social-media a:hover {
+            color: #ffffff;
         }
     </style>
 </head>
@@ -158,9 +169,22 @@
             <a href="https://www.hackerrank.com/contests">Compete</a>
             <a href="https://www.hackerrank.com/apply">Apply</a>
         </nav>
+        <div class="hamburger" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileMenu">
+        <a href="https://www.hackerrank.com/dashboard">Prepare</a>
+        <a href="https://www.hackerrank.com/contests">Compete</a>
+        <a href="https://www.hackerrank.com/apply">Apply</a>
+    </div>
+
     <div class="leaderboard-container">
-        <h2>Stockholm Hackathon September 2024</h2>
+        <h2>XRHack Stockholm Hackathon September 2024</h2>
         <h1>Leaderboard</h1>
         <div class="compare-input">
             <input type="text" placeholder="Type username to compare">
@@ -246,9 +270,31 @@
                     <td>35.00</td>
                     <td>4:25:38</td>
                     <td><img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png" alt="Japan Flag"></td>
-                <!-- Add more rows as needed -->
+                <!-- Add more rows as necessary -->
             </tbody>
         </table>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 XRHack. All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/xrhack" target="_blank">Facebook</a> |
+                <a href="https://www.twitter.com/xrhack" target="_blank">Twitter</a> |
+                <a href="https://www.linkedin.com/company/xrhack" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
